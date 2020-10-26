@@ -1,12 +1,11 @@
 name: Rails Tests
-on: [ push, pull_request ]
-
+on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby
+    - name: Set up Ruby 2.6
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.6
@@ -17,7 +16,7 @@ jobs:
         sudo sysctl -w fs.file-max=262144
         sudo sysctl -w vm.max_map_count=262144
     - name: Run Elasticsearch
-      uses: mkmy1123/elasticsearch-with-plugins-action@v4
+      uses: perfect-ruby-on-rails/elasticsearch-with-plugins-action@v1
       with:
         stack-version: 7.6.0
         plugins: |
