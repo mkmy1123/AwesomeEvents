@@ -22,13 +22,8 @@ Bundler.require(*Rails.groups)
 module AwesomeEvents
   class Application < Rails::Application
     config.load_defaults 6.0
-    config.i18n.fallbacks = [I18n.default_locale]
     config.time_zone = "Tokyo"
     config.i18n.default_locale = :ja
     config.active_storage.variant_processor = :vips
-
-    config.action_dispatch.rescue_responses.merge!(
-      "YourNewException" => :not_found
-    )
   end
 end
